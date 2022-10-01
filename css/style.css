@@ -49,6 +49,15 @@ img {
     max-width: 100%;
 }
 
+.titleSmall {
+    letter-spacing: 0.5rem;
+    font-size: 2rem;
+}
+
+.block {
+    margin-bottom: 5rem;
+}
+
 /* setting up the grid */
 .grid-container {
     display: grid;
@@ -59,7 +68,8 @@ img {
     min-height: 100vh;
 }
 
-/* Style */
+/* Specific css */
+/* Header */
 
 header {
     grid-area: header;
@@ -90,15 +100,39 @@ header {
     grid-area: picture;
     padding: 6rem;
     background: var(--background);
+    border-right: 1px solid #ddd;
 }
 
 .profilPicture {
     border-radius: 50%;
 }
 
+/* Aside info */
 aside {
     grid-area: aside;
-    background: green;
+    background: var(--background);
+    border-right: 1px solid #ddd;
+    padding: 5rem;
+}
+
+.titleInfo {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+}
+
+.texteInfo {
+    margin: 0 0 2rem 0;
+    font-style: italic;
+}
+
+.texteEducation {
+    margin: 0;
+    font-style: italic;
+}
+
+.texteDate {
+    font-size: 1.2rem;
+    margin: 0 0 2rem 0;
 }
 
 main {
