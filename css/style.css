@@ -9,6 +9,7 @@
     --background: #fafafa;
     --hint: #999;
     --light: #00c3ff;
+    --border: #ddd
 }
 
 /* global CSS */
@@ -100,7 +101,7 @@ header {
     grid-area: picture;
     padding: 6rem;
     background: var(--background);
-    border-right: 1px solid #ddd;
+    border-right: 1px solid var(--border);
 }
 
 .profilPicture {
@@ -111,7 +112,7 @@ header {
 aside {
     grid-area: aside;
     background: var(--background);
-    border-right: 1px solid #ddd;
+    border-right: 1px solid var(--border);
     padding: 5rem;
 }
 
@@ -162,8 +163,40 @@ main {
 .texteMain {
     letter-spacing: 0.1rem;
     line-height: 2rem;
+    margin-bottom: 4rem;
 }
 
+/*  XP style */
+
+.experience {
+    display: flex;
+    margin: 3rem 0;
+}
+
+.timeline {
+text-align: center;
+    color: var(--hint);
+    padding-right: 2rem;
+    border-right: 1px solid var(--border);
+}
+
+.content {
+    padding: 0 1rem;
+}
+
+.titleXp {
+    margin-bottom: 4rem;
+}
+
+.projectP {
+    margin: 0;
+}
+
+ul {
+    margin: 2rem;
+    list-style: circle;
+    padding-left: 4rem;
+}
 
 
 
