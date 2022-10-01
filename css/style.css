@@ -65,6 +65,7 @@ img {
     grid:
     "picture header" auto
     "aside main" 1fr
+    "footer footer" auto
     / 350px auto;
     min-height: 100vh;
 }
@@ -198,5 +199,10 @@ ul {
     padding-left: 4rem;
 }
 
+/* Footer */
 
-
+footer {
+    grid-area: footer;
+    padding: 3rem;
+    background: var(--text);
+}
