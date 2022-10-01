@@ -135,9 +135,33 @@ aside {
     margin: 0 0 2rem 0;
 }
 
+.socialContainer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.socialContainer i {
+    font-size: 2rem;
+    flex: 0 0 5rem;
+    margin-right: 1rem;
+}
+
+/*Main style*/
+
 main {
     grid-area: main;
-    background: purple;
+    padding: 5rem;
+}
+
+.titleMain {
+    margin-bottom: 4rem;
+}
+
+.texteMain {
+    letter-spacing: 0.1rem;
+    line-height: 2rem;
 }
 
 
