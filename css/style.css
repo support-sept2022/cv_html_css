@@ -1,0 +1,87 @@
+/* Variables */
+:root {
+    /* Font */
+    --font-family: 'Roboto Mono', monospace;
+    /* Colors */
+    --primary: #2071e7;
+    --dark: #2980b9;
+    --text: #333;
+    --background: #fafafa;
+    --hint: #999;
+    --light: #00c3ff;
+}
+
+/* global CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text);
+    font-size: 1.6rem;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1rem 0 2rem 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* setting up the grid */
+.grid-container {
+    display: grid;
+    grid:
+    "picture header" auto
+    "aside main" 1fr
+    / 350px auto;
+    min-height: 100vh;
+}
+
+/* Style */
+
+header {
+    grid-area: header;
+    min-height: 30rem;
+    background: blue;
+}
+
+.picture {
+    grid-area: picture;
+    background: red;
+}
+
+aside {
+    grid-area: aside;
+    background: green;
+}
+
+main {
+    grid-area: main;
+    background: purple;
+}
+
+
+
+
