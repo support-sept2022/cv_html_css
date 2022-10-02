@@ -60,7 +60,7 @@ img {
 }
 
 /* setting up the grid */
-.grid-container {
+.gridContainer {
     display: grid;
     grid:
     "picture header" auto
@@ -175,7 +175,7 @@ main {
 }
 
 .timeline {
-text-align: center;
+    text-align: center;
     color: var(--hint);
     padding-right: 2rem;
     border-right: 1px solid var(--border);
@@ -205,4 +205,29 @@ footer {
     grid-area: footer;
     padding: 3rem;
     background: var(--text);
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+    .gridContainer {
+        grid:
+        "header" auto
+        "aside" auto
+        "main" auto
+        "picture" auto
+        "footer" auto;
+    }
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+
+@media (min-width: 1200px) {
+
 }
