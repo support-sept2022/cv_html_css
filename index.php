@@ -1,3 +1,39 @@
+<?php
+define('ERROR_REQUIRED', "Champ obligatoire");
+define('ERROR_LENGTH', "Caractere min 2");
+define('ERROR_MAIL', "Email nom valide");
+
+$errors = [
+    'firstname' => '',
+    'email' => '',
+];
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = array_map("trim", $_POST);
+
+    $firstname = $data['firstname'] ?? '';
+    $email = $data['email'] ?? '';
+
+    if (empty($firstname)) {
+        $errors['firstname'] = ERROR_REQUIRED;
+    }
+    
+    if (strlen($firstname) < 2) {
+        $errors['firstname'] = ERROR_LENGTH;
+    }
+    
+    if (empty($email)) {
+        $errors['email'] = ERROR_REQUIRED;
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = ERROR_MAIL;
+    }
+}
+
+
+?>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -126,6 +162,20 @@
         </div>
     </main>
     <footer>
+        <form method="POST" action="">
+            <div>
+                <label class="labelFrom" for="firstname">Firstname</label>
+                <input class="inputForm" name="firstname" type="text" id="firstname">
+                <?php if ($errors['firstname']) {
+                    echo '<p>' . $errors['firstname'] . '</P>';
+                } else null ?>
+            </div>
+            <div>
+                <label class="labelFrom" for="email">email</label>
+                <input class="inputForm" name="email" type="email" id="email">
+            </div>
+            <button class="buttonForm" type="submit">Envoyer</button>
+        </form>
     </footer>
 </div>
 </body>
