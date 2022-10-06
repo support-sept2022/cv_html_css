@@ -221,8 +221,50 @@ ul {
 
 footer {
     grid-area: footer;
-    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 5rem;
     background: var(--text);
+}
+
+/* Formulaire */
+
+form div {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form {
+    margin: 0 auto;
+}
+
+.buttonForm {
+    transition-duration: 0.4s;
+    font-size: 1em;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.buttonForm:hover {
+    background-color: red;
+    color: white;
+}
+
+.labelForm {
+    margin-right: 2em;
+}
+
+.inputForm {
+    border: 0;
+    min-width: 40em;
+    padding: 1rem 2rem;
+    line-height: 2rem;
 }
 
 /* Responsive */
@@ -231,35 +273,10 @@ footer {
     .gridContainer {
         grid:
         "header" auto
+        "aside" auto
         "main" auto
         "picture" auto
-        "aside" auto
         "footer" auto;
-    }
-
-    header {
-        padding: 5rem 2rem;
-    }
-
-    .name {
-        font-size: 4rem;
-    }
-
-    main {
-        padding: 5rem 1.5rem;
-    }
-
-    .timeline {
-        padding: 0 1rem 0 1rem;
-        font-size: 1rem;
-    }
-
-    .projectP {
-        font-size: 1.5rem;
-    }
-
-    ul {
-        padding: 1rem;
     }
 }
 
@@ -282,7 +299,7 @@ footer {
     10% {
         transform: rotate(-35deg);
     }
-    70% {
+    70%{
         transform: rotate(20deg);
     }
     80% {

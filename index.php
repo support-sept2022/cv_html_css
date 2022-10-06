@@ -1,10 +1,45 @@
-<!DOCTYPE html>
+<?php
+define('ERROR_REQUIRED', "Champ obligatoire");
+define('ERROR_LENGTH', "Caractere min 2");
+define('ERROR_MAIL', "Email nom valide");
+
+$errors = [
+    'firstname' => '',
+    'email' => '',
+];
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = array_map("trim", $_POST);
+
+    $firstname = $data['firstname'] ?? '';
+    $email = $data['email'] ?? '';
+
+    if (empty($firstname)) {
+        $errors['firstname'] = ERROR_REQUIRED;
+    }
+    
+    if (strlen($firstname) < 2) {
+        $errors['firstname'] = ERROR_LENGTH;
+    }
+    
+    if (empty($email)) {
+        $errors['email'] = ERROR_REQUIRED;
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = ERROR_MAIL;
+    }
+}
+
+
+?>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/99dc44be9d.js" crossorigin="anonymous"></script>
     <title>Support CV</title>
@@ -75,7 +110,7 @@
 
         <h2 class="titleSmall titleXp">PROJET PROFESSIONNEL</h2>
         <div class="experience">
-            <div class="timeline"> 2 semaines</div>
+            <div class="timeline">2 semaines</div>
             <div class="content">
                 <h3>Nom du projet</h3>
                 <p class="projectP">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis eget quam et
@@ -126,9 +161,22 @@
             </div>
         </div>
     </main>
-    <footer></footer>
+    <footer>
+        <form method="POST" action="">
+            <div>
+                <label class="labelFrom" for="firstname">Firstname</label>
+                <input class="inputForm" name="firstname" type="text" id="firstname">
+                <?php if ($errors['firstname']) {
+                    echo '<p>' . $errors['firstname'] . '</P>';
+                } else null ?>
+            </div>
+            <div>
+                <label class="labelFrom" for="email">email</label>
+                <input class="inputForm" name="email" type="email" id="email">
+            </div>
+            <button class="buttonForm" type="submit">Envoyer</button>
+        </form>
+    </footer>
 </div>
-
-
 </body>
 </html>
